@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-md-6 col-md-offset-3">
+      <form #postForm="ngForm" (ngSubmit)="create(postForm.value)">
+        <div class="form-group">
+          <label for="id">Id</label>
+          <input type="number" class="form-control" id="id" required ngModel name="id" />
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" required ngModel name="name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" required ngModel name="email" />
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!postForm.valid">
+          Send Post
+        </button>
+      </form>
+      <hr>
+      <button class="btn btn-primary" type="submit" (click)="onGetdata()">
+        get data
+      </button>
+      &nbsp;
+      <button class="btn btn-primary" type="submit" (click)="onnewdata()">
+        new getData
+      </button>
+      &nbsp;
+      <button class="btn btn-primary" type="submit" (click)="isDelete()">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div>
+    <hr>
+    <p>{{data.id}}</p>
+    <p>{{data.name}}</p>
+    <div class="alert alart danger" *ngIf="error">
+      <h1>error</h1>
+      <p>{{error}}</p>
+    </div>
+
+
+  </div>
+</div>
